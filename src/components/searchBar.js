@@ -1,7 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
   static displayName = 'Search Bar';
+
+  static propTypes = {
+    onSelect: PropTypes.func,
+  };
 
   constructor() {
     super();
@@ -9,7 +14,7 @@ export default class SearchBar extends React.Component {
     this.state = {
       apiKey: '2acc9fd5',
       results: [],
-      selectedMovies: [],
+      searching: false,
     };
   }
 
@@ -19,6 +24,8 @@ export default class SearchBar extends React.Component {
     }
     if (value.length >= 3) {
       const {apiKey} = this.state;
+      this.setState({searching: true});
+
       fetch(`http://www.omdbapi.com/?s=*${value}*&type=movie&apikey=${apiKey}`,
         { 
           method: 'get',
@@ -35,19 +42,27 @@ export default class SearchBar extends React.Component {
 
   onDelete = (id) => {};
 
+  onSelect = (movie) => {
+    this.props.onSelect(movie);
+    this.setState({searching: false});
+  };
+
   render = () => {
-    const {results, selectedMovies} = this.state;
+    const {results, searching} = this.state;
 
     return (
       <>
-        <input type='text' onChange={(event) => this.onSearch(event.target.value)} />
-        <ul>
-          {results.map((res) => (
-            <li key={res.imdbID}>
-              <p>{res.Title}</p>
-              <p>{res.Year}</p>
+        <input className="search-bar" type='text' onChange={(event) => this.onSearch(event.target.value)} />
+        <ul className="result-list">
+          {searching ? results.map((res) => (
+            <li key={res.imdbID} className="result-item">
+              <button onClick={() => this.onSelect(res)}>
+                <p>{res.Title}</p>
+                <p>{res.Year}</p>
+              </button>
             </li>
-          ))}
+          ))
+         : ''}
         </ul>
       </>
     );

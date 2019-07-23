@@ -4,3 +4,50 @@
   text-align: center;
 }
 
+.search-bar {
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  padding: 5px 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+.result-list {
+  list-style: none;
+  width: 15rem;
+  margin: auto;
+  padding: 0;
+}
+
+.result-item button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.result-item:hover {
+  background-color: lightblue;
+}
+
+.selected-movies-list {
+  list-style: none;
+}
+
+.selected-movie {
+  border-radius: 25px;
+  border: 1px solid lightgrey;
+  background-color: rgb(245, 237, 237);
+  width: auto;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.selected-movie button {
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 20px;
+  cursor: pointer;
+  padding-right: 0;
+}
+
