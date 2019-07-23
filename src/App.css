@@ -16,7 +16,7 @@
 .result-list {
   list-style: none;
   width: 15rem;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
   border-radius: 5px;
   border: 1px solid lightgrey;
