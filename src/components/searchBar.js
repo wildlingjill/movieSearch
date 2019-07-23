@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * allows a user to search a movie via the OMDB API, returns results for user to select
+ * takes an onSelect prop from parent component to call when a result is selected
+ */
 export default class SearchBar extends React.Component {
   static displayName = 'Search Bar';
 
@@ -54,15 +58,14 @@ export default class SearchBar extends React.Component {
       <>
         <input className="search-bar" type='text' onChange={(event) => this.onSearch(event.target.value)} />
         <ul className="result-list">
-          {searching ? results.map((res) => (
+          {searching && results.map((res) => (
             <li key={res.imdbID} className="result-item">
               <button onClick={() => this.onSelect(res)}>
-                <p>{res.Title}</p>
-                <p>{res.Year}</p>
+                <p className="result-item__title">{res.Title}</p>
+                <p className="result-item__year">{res.Year}</p>
               </button>
             </li>
-          ))
-         : ''}
+          ))}
         </ul>
       </>
     );

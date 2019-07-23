@@ -7,6 +7,7 @@
 .search-bar {
   border: 1px solid lightgrey;
   border-radius: 25px;
+  width: 15rem;
   padding: 5px 10px;
   outline: none;
   font-size: 16px;
@@ -17,16 +18,29 @@
   width: 15rem;
   margin: auto;
   padding: 0;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
 }
 
 .result-item button{
   background-color: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
+  width: 100%;
 }
 
 .result-item:hover {
   background-color: lightblue;
+}
+
+.result-item__title {
+  font-size: 14px;
+}
+
+.result-item__year {
+  font-size: 12px;
+  color: grey;
 }
 
 .selected-movies-list {
