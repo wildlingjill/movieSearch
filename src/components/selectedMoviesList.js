@@ -11,7 +11,7 @@ const SelectedMoviesList = ({selectedMovies, onDelete}) => (
   <ul className='selected-movies-list'>
     {selectedMovies.map((movie) => (
       <li className='selected-movie' key={movie.imdbID}>
-        {movie.Title} <button onClick={() => onDelete(movie.imdbID)}>x</button>
+        <span>{movie.Title} </span><button onClick={() => onDelete(movie.imdbID)}>×</button>
       </li>
     ))}
   </ul>

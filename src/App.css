@@ -1,33 +1,51 @@
-.App {
+* {
   box-sizing: border-box;
-  margin: 1rem;
+}
+
+.App {
   text-align: center;
 }
 
-.search-bar {
+.movies-container__outer {
+  display: inline-block;
+  position: relative;
   border: 1px solid lightgrey;
   border-radius: 25px;
+  padding: 5px;
+}
+
+.search-bar {
+  display: inline-block;
   width: 15rem;
   padding: 5px 10px;
   outline: none;
-  font-size: 16px;
+  border: none;
+  font-size: 14px;
+  background: transparent;
 }
 
 .result-list {
+  display: inline-block;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 10px;
   list-style: none;
   width: 15rem;
   margin: 0 auto;
   padding: 0;
   border-radius: 5px;
-  border: 1px solid lightgrey;
+  box-shadow: 0px 4px 7px 3px rgba(204,202,204,1);
 }
 
-.result-item button{
+.result-item {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
-  width: 100%;
+  padding: 5px 0;
+}
+
+.result-item p {
+  margin: 3px;
 }
 
 .result-item:hover {
@@ -44,19 +62,30 @@
 }
 
 .selected-movies-list {
+  display: inline-block;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .selected-movie {
+  display: inline-block;
   border-radius: 25px;
-  border: 1px solid lightgrey;
   background-color: rgb(245, 237, 237);
   width: auto;
+  padding: 0 8px;
+  font-size: 14px;
+  margin-right: 0.2rem;
+}
+
+.selected-movie span {
   display: inline-block;
-  padding: 5px 10px;
+  vertical-align: middle;
 }
 
 .selected-movie button {
+  display: inline-block;
+  vertical-align: middle;
   border: none;
   background-color: transparent;
   color: grey;

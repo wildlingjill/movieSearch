@@ -1,7 +1,6 @@
 import React from 'react';
-import SearchBar from './components/searchBar';
-import SelectedMoviesList from './components/selectedMoviesList';
 import './App.css';
+import MovieContainer from './components/movieContainer';
 
 export default class App extends React.Component {
   static displayName = 'App';
@@ -44,8 +43,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <h1>Movie Search</h1>
-        <SearchBar onSelect={this.onSelect} />
-        <SelectedMoviesList selectedMovies={selectedMovies} onDelete={this.onDelete} />
+        <MovieContainer selectedMovies={selectedMovies} onSelect={this.onSelect} onDelete={this.onDelete} />
       </div>
     );
   };
